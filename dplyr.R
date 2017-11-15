@@ -1,8 +1,25 @@
-source("dbi.R")
-dbListTables(conn)
+library(dplyr)
+source("dbconn/jdbccon3.R")
+dbListTables(conne)
+dbListFields(conne,'film')
+tbl(conne,"film")
+film<-dbReadTable(conne,'film')
+film<-dbGetQuery(conne,'select * from film')
+payment<-dbGetQuery(conne,'select * from payment')
+inventory<-dbGetQuery(conne,'select * from inventory')
+rental<-dbGetQuery(conne,'select * from rental')
+dbListFields(conne,'film')
+dbListFields(conne,'payment')
+dbListFields(conne,'rental')
+dbListFields(conne,'inventory')
 
+nrow(film)
 
+inv_film<-inner_join(film,inventory)
+inv_film<-inner_join(film,inventory,by=c("film_id"="film_id"))
+rent_inv_film<-inner_join(inv_film,rental)
 
+rent_inv_film1<-film%>%inner_join(inventory,by=c("film_id"="film_id"))%>%inner_join(rental)
 
 str(airquality)			# data frame con i dati sulla qualit? dell'aria a New York
 # da Maggio a Settembre 1973 usato negli esempi che seguono
