@@ -2,7 +2,7 @@ library(dplyr)
 source("dbconn/jdbccon3.R")
 dbListTables(conne)
 dbListFields(conne,'film')
-tbl(conne,"film")
+a<-tbl(conne,"film")
 film<-dbReadTable(conne,'film')
 film<-dbGetQuery(conne,'select * from film')
 payment<-dbGetQuery(conne,'select * from payment')
@@ -14,10 +14,11 @@ dbListFields(conne,'rental')
 dbListFields(conne,'inventory')
 
 nrow(film)
-
+select(film,title)
 inv_film<-inner_join(film,inventory)
 inv_film<-inner_join(film,inventory,by=c("film_id"="film_id"))
 rent_inv_film<-inner_join(inv_film,rental)
+
 
 rent_inv_film1<-film%>%inner_join(inventory,by=c("film_id"="film_id"))%>%inner_join(rental)
 
@@ -232,10 +233,10 @@ summarize(dati.raggrup, mean(Temp, na.rm=TRUE)		# Calcolo la temperatura media p
           tapply(mtcars$mpg, mtcars$cyl, mean)			# Sintassi di R base
           
           summarize(group_by(mtcars, cyl), mean(mpg) )		# Sintassi di R - dplyr
-          
+          str(summarize(group_by(mtcars, cyl), mean(mpg) ))
           mtcars %>% group_by(cyl) %>% summarize(mean(mpg))	# Sintassi di R - dplyr e pipe %>%
           
-          
+          mtcars$mpg%>%tapply( mtcars$cyl, mean)
           ########################## JOIN DATASETS con dplyr ########################################
           
           x<-data.frame(
