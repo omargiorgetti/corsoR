@@ -1,7 +1,7 @@
 library("dbplyr")
   con <- dbConnect(odbc::odbc(),"DB2conn")
   con <- dbConnect(odbc::odbc(),"DB2connl")
-con <- dbConnect(odbc::odbc(),"DB2")
+  con <- dbConnect(odbc::odbc(),"DB2")
 
 con <- dbConnect(odbc::odbc(),
       driver="/usr/lib/libdb2.so",
