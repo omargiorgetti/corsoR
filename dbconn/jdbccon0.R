@@ -1,8 +1,3 @@
-library(rJava)
-library(DBI)
-library(RJDBC)
-
-
 Classe<-"com.mysql.jdbc.Driver"		# Parametri Classe e Percorso:
 Percorso<-"/usr/local/share/drivers/mysql/mysql-connector-java-5.1.44-bin.jar"
 Classe<-"com.mysql.jdbc.Driver"		# Parametri Classe e Percorso:
