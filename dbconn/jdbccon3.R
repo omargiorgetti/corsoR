@@ -1,4 +1,4 @@
-setwd("~/Documenti/R/progetti/CorsoR")
+setwd("~/Documenti/R/progetti/corsoR")
 source("dbconn/conn.R")
 
 drvstr<-setConn("local")
