@@ -1,7 +1,3 @@
-library(rJava)
-library(DBI)
-library(RJDBC)
-
 
 source("LocalPar.R")
 #source("AulaPar.R")

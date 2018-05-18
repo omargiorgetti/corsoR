@@ -10,7 +10,10 @@ pivottipostella=spread(numtipostella,stelle,n)
 pivottipostella=spread(numtipostella,stelle,n)
 write.csv(pivottipostella,file="/home/userregtosc/Documenti/R/progetti/corsoR/esempi/pivottipostella")
 
-
-
-ggplot(data=strutture)+geom_bar(mapping=aes(x=tipologia,fill=stelle))+coord_flip()
 ggplot(data=strutture)+geom_bar(mapping=aes(x=tipologia))
+ggplot(data=strutture)+geom_bar(mapping=aes(x=tipologia,fill=stelle))+coord_flip()
+
+
+
+pop<-read_csv2('../Wrangle/popolazioneresidenteperetasessoestatocivileanno2013.csv')
+popnum <- pop %>% group_by(Comune) %>% summarise(npop=sum(PopolazioneTotale))
