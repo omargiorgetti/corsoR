@@ -1,4 +1,5 @@
 library(tidyverse)
 setwd("~/Documenti/R/progetti/corsoR/esempi/Wrangle")
 pop<-read_csv2('popolazioneresidenteperetasessoestatocivileanno2013.csv')
-write_csv(pop,'popcomune.csv')
+popnum <- pop %>% group_by(Comune) %>% summarise(npop=sum(PopolazioneTotale))
+write_csv(popnum,'popcomune.csv')
